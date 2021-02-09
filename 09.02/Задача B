@@ -1,0 +1,15 @@
+def boolean(a,b,c):
+    if a == 1 == b:
+        print('true')
+    if a == 0 == b:
+        print('false')
+    if a == 1 == c:
+        print('true')
+    if a == 0 == c:
+        print('false')
+    if b == 1 == c:
+        print('true')
+    if b == 0 == c:
+        print('false')
+a,b,c = list(map(int, input().split()))
+boolean(a,b,c)
