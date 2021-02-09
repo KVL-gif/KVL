@@ -1,0 +1,7 @@
+def lenl(x,y,x1,y1):
+    return ((x - x1) ** 2 + (y - y1)) ** 0.5
+x,y,x1,y1,x2,y2 = list(map(int, input().split()))
+n = lenl(x,y,x1,y1)
+n += lenl(x,y,x2,y2)
+n += lenl(x1,y1,x2,y2)
+print(n)
