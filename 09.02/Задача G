@@ -1,0 +1,6 @@
+def ls(n,m):
+    for i in range(n):
+        print(*list(map(int, input().split())))
+n = int(input())
+m = int(input())
+ls(n,m)
