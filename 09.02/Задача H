@@ -1,0 +1,15 @@
+def ls(n,m):
+    for i in range(n):
+        ms = input().split()
+        ms1 = []
+        for j in range(n):
+            if ms[j] == 'false':
+                ms1.append('1')
+            elif ms[j] == 'true':
+                ms1.append('0')
+            else:
+                ms1.append(ms[j])
+        print(*ms1)
+n = int(input())
+m = int(input())
+ls(n,m)
