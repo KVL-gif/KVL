@@ -1,0 +1,7 @@
+def faring(c,f):
+    return (5/9) * (f - 32)
+def celsiy(c,f):
+    return (9/5) * c + 32
+f,c = list(map(int, input().split()))
+print(round(faring(c,f),6))
+print(round(celsiy(c,f),6))
