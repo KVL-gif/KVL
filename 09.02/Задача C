@@ -1,0 +1,9 @@
+def haming(s,s1):
+  n = 0
+  for i in range(len(s))
+    if s[i] != s1[i]:
+      n += 1
+  return n
+s = input()
+s1 = input()
+print(heming(s,s1))
