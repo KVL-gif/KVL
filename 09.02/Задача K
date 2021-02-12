@@ -1,0 +1,16 @@
+def RBGtoCMYK(n):
+    n = round(n,6)
+    n = str(n)
+    n += '000000'
+    c = n.find('.')
+    n = n[:c + 7]
+    return n
+R,G,B = list(map(int, input().split()))
+r = R / 255
+g = G / 255
+b = B / 255
+K = 1 - max(r,g,b)
+C = (1 - r - K) / (1 - K)
+M = (1 - g - K) / (1 - K)
+Y = (1 - b - K) / (1 - K)
+print(RBGtoCMYK(C),RBGtoCMYK(M),RBGtoCMYK(Y),RBGtoCMYK(K))
