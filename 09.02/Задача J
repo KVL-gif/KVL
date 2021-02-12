@@ -1,0 +1,23 @@
+def sch(n):
+    ms = []
+    for i in range(n):
+        ms.append(list(map(int, input().split())))
+    return ms
+def perevorot(ms,m,n):
+    ms1 = [[] for i in range(m)]
+    for i in range(m):
+        for j in range(n):
+            ms1[i].append(ms[j][i])
+    return ms1
+def drob(n):
+    n = str(n)
+    n += '.0'
+    n = float(n)
+    return n
+n,m = list(map(int, input().split()))
+ms = sch(n)
+for i in perevorot(ms,m,n):
+    ms2 = []
+    for j in i:
+        ms2.append(drob(j))
+    print(*ms2)
