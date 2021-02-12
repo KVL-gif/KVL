@@ -4,11 +4,10 @@ def heming(s,ms):
     for i in range(len(ms)):
         t = ms[i]
         c = 0
-        for j in range(len(s)):
+        for j in range(min(len(s),len(t))):
             if t[j] != s[j]:
                 c += 1
-        if len(t) > len(s):
-            c += len(t) - len(s)
+        c = abs(len(t) - len(s))
         if mn == None or c < mn:
             x = i
         if mn == 0:
@@ -34,5 +33,6 @@ text = masiv(text)
 slovar = open("slovar.txt","r")
 slovar = slovar.read()
 slovar = masiv(slovar)
+otvet = open("otvet.txt","r")
 for i in text:
     otvet.write(slovar[heming(i,slovar)])
