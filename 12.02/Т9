@@ -11,7 +11,7 @@ def heming(s,ms):
         if mn or c < mn:
             x = i
             mn = c
-        if mn == 0:
+        if mn == 0 or c > len(s):
             break
     return x
 def masiv(r):
@@ -19,7 +19,7 @@ def masiv(r):
     s = ''
     for i in range(len(r)):
         e = r[i]
-        if 'a' <= e <= 'z' or 'A' <= e <= 'Z':
+        if 'a' <= e <= 'z' or 'A' <= e <= 'Z' or '0' <= e <= '9':
             s += e
         else:
             if s != '':
