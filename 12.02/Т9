@@ -30,7 +30,7 @@ def masiv(r):
 text = open("text.txt","r")
 text = text.read()
 text = masiv(text)
-slovar = open("slovar.txt","r")
+slovar = open("slovar.txt","w")
 slovar = slovar.read()
 slovar = masiv(slovar)
 otvet = open("otvet.txt","r")
