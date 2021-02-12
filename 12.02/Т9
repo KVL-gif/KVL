@@ -1,5 +1,5 @@
 def heming(s,ms):
-    mn = None
+    mn = True
     x = 0
     for i in range(len(ms)):
         t = ms[i]
@@ -8,8 +8,9 @@ def heming(s,ms):
             if t[j] != s[j]:
                 c += 1
         c = abs(len(t) - len(s))
-        if mn == None or c < mn:
+        if mn or c < mn:
             x = i
+            mn = c
         if mn == 0:
             break
     return x
@@ -30,9 +31,9 @@ def masiv(r):
 text = open("text.txt","r")
 text = text.read()
 text = masiv(text)
-slovar = open("slovar.txt","w")
+slovar = open("slovar.txt","r")
 slovar = slovar.read()
 slovar = masiv(slovar)
-otvet = open("otvet.txt","r")
+otvet = open("otvet.txt","w")
 for i in text:
     otvet.write(slovar[heming(i,slovar)])
