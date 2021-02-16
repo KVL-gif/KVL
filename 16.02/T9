@@ -1,0 +1,70 @@
+def heming(s,r):
+    k = 0
+    slov = {'q':['w','a','1','2'],'w':['q','e','s','1','2','3'],'e':['w','r','d','2','3','4'],'r':['e','t','f''4','5'],'t':['r','g','y','5','6'],'y':['t','h','u','6','7'],'u':['y','j','i','7','8'],'i':['u','k','o','8','9'],'o':['i','l','p','9','0'],'p':['o','0','-'],'a':['q','s','z'],'s':['w','a','x','d','x'],'d':['e','s','x','c','f'],'f':['r','d','c','v','g'],'g':['t','f','v','b','h'],'h':['y','g','b','n','j'],'j':['u','h','n','m','k'],'k':['i','j','m','l'],'l':['o','k'],'z':['a','x'],'x':['z','s','d','c'],'c':['x','d','f','v'],'v':['c','f','g','b'],'b':['v','g','h','n'],'n':['b','h','j','m'],'m':['n','j','k']}
+    for i in range(min(len(s),len(r))):
+        q = s[i]
+        w = s[i]
+        if w in slov[q]:
+            k += 0.5
+        elif q != w:
+            k += 1
+    k += abs(len(s)-len(r))
+    return k
+def T9(slovar,text):
+    for i in text:
+        c = len(i)
+        e = len(i)
+        r = ''
+        for j in slovar:
+            k = heming(i,j)
+            if k <= c:
+                c = k
+                r = j
+            if c == 0:
+                break
+            if k > e:
+                break
+        otvet.write(r)
+text = open("text.txt","r")
+text = text.read()
+text = text.split()
+slovar = open("slovar.txt","r")
+slovar = slovar.read()
+slovar = slovar.split()
+otvet = open("otvet.txt","w")
+T9(slovar,text)
+def heming(s,r):
+    k = 0
+    slov = {'q':['w','a','1','2'],'w':['q','e','s','1','2','3'],'e':['w','r','d','2','3','4'],'r':['e','t','f''4','5'],'t':['r','g','y','5','6'],'y':['t','h','u','6','7'],'u':['y','j','i','7','8'],'i':['u','k','o','8','9'],'o':['i','l','p','9','0'],'p':['o','0','-'],'a':['q','s','z'],'s':['w','a','x','d','x'],'d':['e','s','x','c','f'],'f':['r','d','c','v','g'],'g':['t','f','v','b','h'],'h':['y','g','b','n','j'],'j':['u','h','n','m','k'],'k':['i','j','m','l'],'l':['o','k'],'z':['a','x'],'x':['z','s','d','c'],'c':['x','d','f','v'],'v':['c','f','g','b'],'b':['v','g','h','n'],'n':['b','h','j','m'],'m':['n','j','k']}
+    for i in range(min(len(s),len(r))):
+        q = s[i]
+        w = s[i]
+        if w in slov[q]:
+            k += 0.5
+        elif q != w:
+            k += 1
+    k += abs(len(s)-len(r))
+    return k
+def T9(slovar,text):
+    for i in text:
+        c = len(i)
+        e = len(i)
+        r = ''
+        for j in slovar:
+            k = heming(i,j)
+            if k <= c:
+                c = k
+                r = j
+            if c == 0:
+                break
+            if k > e:
+                break
+        otvet.write(r)
+text = open("text.txt","r")
+text = text.read()
+text = text.split()
+slovar = open("slovar.txt","r")
+slovar = slovar.read()
+slovar = slovar.split()
+otvet = open("otvet.txt","w")
+T9(slovar,text)
