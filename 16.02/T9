@@ -11,6 +11,7 @@ def heming(s,r):
     k += abs(len(s)-len(r))
     return k
 def T9(slovar,text):
+    global otvet
     for i in text:
         c = len(i)
         e = len(i)
