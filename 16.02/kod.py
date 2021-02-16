@@ -1,0 +1,36 @@
+def heming(s,r):
+    k = 0
+    slov = {'1':['2','q'],'2':['1','q','w','3'],'3':['2','w','e','4'],'4':['3','e','r','5'],'5':['4','r','t','6'],'6':['5','t','y','7'],'7':['6','y','u','8'],'8':['7','u','i','9'],'9':['8','i','o','0'],'0':['9','o','p','-'],'-':['0','p'],'q':['w','a','1','2'],'w':['q','e','s','1','2','3'],'e':['w','r','d','2','3','4'],'r':['e','t','f''4','5'],'t':['r','g','y','5','6'],'y':['t','h','u','6','7'],'u':['y','j','i','7','8'],'i':['u','k','o','8','9'],'o':['i','l','p','9','0'],'p':['o','0','-'],'a':['q','s','z'],'s':['w','a','x','d','x'],'d':['e','s','x','c','f'],'f':['r','d','c','v','g'],'g':['t','f','v','b','h'],'h':['y','g','b','n','j'],'j':['u','h','n','m','k'],'k':['i','j','m','l'],'l':['o','k'],'z':['a','x'],'x':['z','s','d','c'],'c':['x','d','f','v'],'v':['c','f','g','b'],'b':['v','g','h','n'],'n':['b','h','j','m'],'m':['n','j','k']}
+    for i in range(min(len(s),len(r))):
+        q = s[i]
+        w = r[i]
+        if w in slov[q]:
+            k += 0.5
+        elif q != w:
+            k += 1
+    k += abs(len(s)-len(r))
+    return k
+def T9(slovar,text):
+    global otvet
+    for i in text:
+        c = len(i)
+        e = len(i)
+        r = i
+        for j in slovar:
+            k = heming(i,j)
+            if k <= c:
+                c = k
+                r = j
+            if c == 0:
+                break
+            if k > e:
+                break
+        otvet.write(r)
+text = open("text.txt","r")
+text = text.read()
+text = text.split()
+slovar = open("slovar.txt","r")
+slovar = slovar.read()
+slovar = slovar.split()
+otvet = open("C:/Users/Мария/Desktop/T9/otvet.txt","w")
+T9(slovar,text)
