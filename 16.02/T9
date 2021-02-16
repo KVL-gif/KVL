@@ -15,6 +15,7 @@ def T9(slovar,text):
         c = len(i)
         e = len(i)
         r = i
+        print(r)
         for j in slovar:
             k = heming(i,j)
             if k <= c:
@@ -24,6 +25,7 @@ def T9(slovar,text):
                 break
             if k > e:
                 break
+        print(r)
         otvet.write(r)
 text = open("text.txt","r")
 text = text.read()
