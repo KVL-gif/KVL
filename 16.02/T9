@@ -14,7 +14,7 @@ def T9(slovar,text):
     for i in text:
         c = len(i)
         e = len(i)
-        r = ''
+        r = i
         for j in slovar:
             k = heming(i,j)
             if k <= c:
