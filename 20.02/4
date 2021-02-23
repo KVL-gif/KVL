@@ -1,5 +1,6 @@
 def puzirek(ms):
-    for i in range(len(ms)):
+    n = len(ms)
+    for i in range(n):
         t = True
         for j in range(n - i - 1):
             if ms[j] > ms[j+1]:
@@ -8,6 +9,7 @@ def puzirek(ms):
         if t:
             break
     return ms
+
 def vsafkami(ms):
     for i in range(len(ms)):
         j = i - 1
