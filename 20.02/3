@@ -1,0 +1,34 @@
+def puzirek(ms):
+    for i in range(len(ms)):
+        t = True
+        for j in range(n - i - 1):
+            if ms[j] > ms[j+1]:
+                ms[j],ms[j+1] = ms[j+1],ms[j]
+                t = False
+        if t:
+            break
+    return ms
+def vsafkami(ms):
+    for i in range(len(ms)):
+        j = i - 1
+        t = ms[i]
+        t = True
+        while ms[j] > t and j >= 0:
+            ms[j+1] = ms[j]
+            j -= 1
+            if t:
+                t = False
+        ms[j+1] = t
+        if t:
+            break
+    return ms
+s = int(input())
+n = int(input())
+ms = list(map(int, input().split()))
+ms = puzirek(ms)
+i = 0
+k = 0
+while i < n and s - ms[i] >= 0:
+    i += 1
+    k += 1
+print(k) 
