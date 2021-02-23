@@ -1,0 +1,15 @@
+def p():
+    n = int(input())
+    slovar = {}
+    ms = set()
+    for i in range(n):
+        d,m = list(map(int, input().split()))
+        if m in slovar:
+            slovar[m].append(d)
+        else:
+            slovar[m] = [d]
+        ms.add(m)
+    for i in sorted(ms,reverse=True):
+        for j in slovar[i]:
+            print(j, end=' ')
+p()
