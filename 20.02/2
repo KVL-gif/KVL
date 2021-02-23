@@ -1,0 +1,16 @@
+def visAscending(ms,i):
+    j = i - 1
+    t = ms[i]
+    while ms[j] > t and j >= 0:
+        ms[j+1] = ms[j]
+        j -= 1
+    ms[j+1] = t
+    return ms
+ms = list(map(int, input().split()))
+ms1 = ms[::1]
+for i in range(len(ms)):
+    ms = visAscending(ms,i)
+if ms == ms1 and ms[0] + len(ms) <= ms[-1]:
+    print('Yes')
+else:
+    print('No')
