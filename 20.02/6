@@ -1,0 +1,8 @@
+n = int(input())
+slovar = {}
+for i in range(n):
+    l,s = input().split()
+    slovar[l] = s
+    slovar[s] = l
+t = input()
+print(slovar[t])
