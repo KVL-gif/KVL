@@ -1,0 +1,30 @@
+import math
+ms = sorted(list(map(int, input().split())))
+k = int(input())
+n = 0
+l = 0
+t = True
+for i in range(0,len(ms)):
+    if t == False:
+        t = True
+    else:
+        if n < ms[-1]:
+            if i == 0:
+                l = math.ceil((ms[1] - ms[0]) / k)
+                n = l * k
+                t = False
+            else:
+                if n < ms[i]:
+                    v = (ms[i] - n) / k
+                    c = (ms[i+1] - ms[i]) / k
+                    r = math.ceil(min(v,c))
+                    l += r
+                    if v < c:
+                        n += math.ceil(v) * k
+                    else:
+                        n = ms[i] + math.ceil(c) * k
+                        t = False
+        else:
+            break
+print(l)
+            
