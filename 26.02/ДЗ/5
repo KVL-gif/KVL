@@ -1,0 +1,26 @@
+n = int(input())
+slovar = {}
+ms = []
+for i in range(n):
+    d,a = list(map(int, input().split()))
+    if a in slovar:
+        slovar[a].append(d)
+    else:
+        slovar[a] = [d]
+        ms.append(a)
+ms = sorted(ms)
+t = ms[0]
+i = 0
+r = 0
+while i != n:
+    if ms[i] - t > 2:
+        t = ms[i]
+        r += 1
+        q = False
+    else:
+        i += 1
+        q = True
+if q:
+    r += 1
+print(q)
+    
