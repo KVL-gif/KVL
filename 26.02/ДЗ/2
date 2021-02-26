@@ -1,0 +1,8 @@
+def d(n):
+    s = ''
+    while n > 0:
+        y = str(n % 2)
+        s = y + s
+        n = int(n / 2)
+    return s
+print(d(int(input())))
