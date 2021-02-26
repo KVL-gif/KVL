@@ -1,0 +1,7 @@
+t,n = list(map(int, input().split()))
+ms = []
+for i in range(n):
+    d,r = list(map(int, input().split()))
+    ms.append(d)
+ms = sorted(ms)
+print(sum(ms[:t]))
