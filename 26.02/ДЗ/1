@@ -1,0 +1,13 @@
+def jadina(ms):
+    s = ''
+    for i in range(len(ms)):
+        k = max(ms)
+        s += k
+        t = ms.index(k)
+        ms = ms[:t] + ms[t+1:]
+    return s
+n = input()
+ms = []
+for i in n:
+    ms.append(i)
+print(jadina(ms))
