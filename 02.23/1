@@ -1,0 +1,7 @@
+def fun():
+    print('Hello world!')
+def d(n,fun):
+    for i in range(n):
+        fun()
+n = int(input())
+d(n,fun)
