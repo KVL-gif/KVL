@@ -1,0 +1,5 @@
+def d(fun):
+    from time import sleep
+    while True:
+        fun()
+        sleep(3600)
