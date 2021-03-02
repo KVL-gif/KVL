@@ -1,0 +1,20 @@
+def n():
+    import time
+    for j in [10,1000,100000]
+    k = 0
+    s = time.time()
+        for i in range(j):
+            k += i
+    f = time.time()
+    print(j,'-',f-s)
+def nn():
+    from time import time
+    for t in [10,1000,100000]:
+        k = 0
+        s = time()
+        for i in range(t):
+            for j in range(i + 1):
+                k += j
+        f = time()
+        print(t,'-',f-s)
+print('третья подзадача очень сложная')
