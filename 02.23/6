@@ -5,3 +5,4 @@ def d(fun):
     while True:
         fun()
         sleep(3600)
+d(fun)
