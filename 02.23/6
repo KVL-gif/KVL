@@ -1,3 +1,5 @@
+def fun():
+  print('Hello world!')
 def d(fun):
     from time import sleep
     while True:
