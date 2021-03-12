@@ -6,9 +6,9 @@ class cat():
     def gatName(self):
         return self.name
     def run(self):
-        self.enrg = enrg - 100
-    def getStamina(enrg):
-        return enrg
+        self.enrg = self.enrg - 100
+    def getStamina(self):
+        return self.enrg
     def eat(self):
         self.enrg += 200
     def sleep(self):
