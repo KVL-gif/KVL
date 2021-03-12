@@ -1,15 +1,16 @@
 class cat():
-    def __init__(self,enrg):
+    def __init__(self,name):
         self.enrg = 1000
-    def setName(self, Name):
-        self.Name = Name
+        self.name = name
+    def setName(self, name):
+        self.name = name
     def gatName(Name):
         return Name
-    def run():
-        enrg = enrg - 100
+    def run(self,enrg):
+        self.enrg = enrg - 100
     def getStamina():
         return enrg
-    def eat():
-        enrg += 200
-    def sleep():
-        enrg += 100
+    def eat(self,enrg):
+        self.enrg += 200
+    def sleep(self,enrg):
+        self.enrg += 100
