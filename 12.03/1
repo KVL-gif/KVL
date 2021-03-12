@@ -8,7 +8,7 @@ class cat():
         return Name
     def run(self,enrg):
         self.enrg = enrg - 100
-    def getStamina():
+    def getStamina(enrg):
         return enrg
     def eat(self,enrg):
         self.enrg += 200
