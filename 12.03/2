@@ -1,9 +1,9 @@
 class animal():
     def __init__(self,Name):
         self.Name = Name
-    class WildAnimal(animal):
-        class WaterAnimal(WildAnimal):
-        class ForestAnimal(WildAnimal):
-    class HomeAnimal(animal):
-        class Pets(HomeAnimal):
-        class Livestok(HomeAnimal):
+class WildAnimal(animal):
+class WaterAnimal(WildAnimal):
+class ForestAnimal(WildAnimal):
+class HomeAnimal(animal):
+class Pets(HomeAnimal):
+class Livestok(HomeAnimal):
