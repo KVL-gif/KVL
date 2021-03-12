@@ -3,13 +3,13 @@ class cat():
         self.enrg = 1000
     def setName(salf, Name):
         self.Name = Name
-    def gatName(Name):
-        ruturn Name
-    def run(self,enrg):
-        self.enrg = enrg - 100
-    def getStamina(enrg):
+    def gatName():
+        return Name
+    def run():
+        enrg = enrg - 100
+    def getStamina():
         return enrg
-    def eat(self,enrg):
-        self.enrg += 200
-    def sleep(self,enrg):
-        self.enrg += 100
+    def eat():
+        enrg += 200
+    def sleep():
+        enrg += 100
