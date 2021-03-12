@@ -1,0 +1,19 @@
+class animal():
+    def __init__(self):
+        self.ms = []
+    def name(self,Name):
+        self.Name = input('Введите название животного: ')
+        ms.append(Name)
+        ms.append(':')
+    def Mesto(self,mesto):
+        self.mesto = input('Животное домашнее или дикое: ')
+        ms.append(mesto)
+        ms.append('->')
+        if mesto == 'домашнее':
+            def Naz(self,naz):
+                self.naz = input('Животное это петомец или фермерсеок животное: ')
+                ms.append(naz)
+        else:
+            def Naz(self,naz):
+                self.naz = input('Животное морское или лесное(в именительном падеже): ')
+                ms.append(naz)
