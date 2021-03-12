@@ -1,9 +1,9 @@
 class cat():
     def __init__(self,enrg):
         self.enrg = 1000
-    def setName(salf, Name):
+    def setName(self, Name):
         self.Name = Name
-    def gatName():
+    def gatName(Name):
         return Name
     def run():
         enrg = enrg - 100
