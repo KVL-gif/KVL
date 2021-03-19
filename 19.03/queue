@@ -1,0 +1,11 @@
+class queue:
+    def __init__(self):
+        self.queue = []
+    def append(self,k):
+        self.k = k
+        self.queue = self.queue + [self.k]
+    def pop(self):
+        self.queue = self.queue[1:]
+    def peak(self,k):
+        self.k = k
+        return self.queue[self.k]
