@@ -1,0 +1,11 @@
+class stack:
+    def __init__(self):
+        self.stack = []
+    def append(self,k):
+        self.k = k
+        self.stack = self.stack + [self.k]
+    def pop(self):
+        self.stack = self.stack[:-1]
+    def peak(self,k):
+        self.k = k
+        return self.stack[self.k]
