@@ -1,7 +1,7 @@
 import telebot
 from random import randint
 
-bot = telebot.TeleBot('КТО ПРОЧИТАЛ ТОТ ЛОХ')
+bot = telebot.TeleBot('☺☻♥')
 
 @bot.message_handler(commands=['start'])
 
@@ -11,24 +11,13 @@ def start_message(message):
 @bot.message_handler(commands=['next'])
     
 def next_message(message):
-    print(1)
     ms = ['ты добрый','ты злой','ты очень злой','ты очень добрый','тебе плохо','тебе очень плохо','тебе везёт','тебе очень везёт','тебе не везёт','тебе очень не везёт',]
     def random():
-        t = randint(0,9)
+        t = randint(0,10)
         bot.send_message(message.chat.id, ms[t])
     def prt():
-        bot.send_message(message.chat.id, 'Вот веще предсказание на сегодня.')
+        bot.send_message(message.chat.id, 'Вот ваще предсказание на сегодня.')
+        bot.send_message(message.chat.id, 'Для нового диагноза нажмите сюда ---> /next')
     random()
     prt()
-bot.polling()
-
-from random import randint
-bot = telebot.TeleBot('кто прочитал тот лох')
-@bot.message_handler(commands=['/start'])
-def start_messege(message):
-    bot.send_message(message.chat.id, 'Привет! Это бот с предсказаниями.')
-def random():
-    ms = ['ты добрый','ты злой','ты очень злой','ты очень добрый','тебе плохо','тебе очень плохо','тебе везёт','тебе очень везёт','тебе не везёт','тебе очень не везёт',]
-    bot.send_message(message.cat.id, ms[randit(0,9)])
-    bot.send_message(message.chat.id, 'Вот веще предсказание на сегодня.')
 bot.polling()
