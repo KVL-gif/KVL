@@ -1,23 +1,22 @@
 import telebot
 from random import randint
 
-bot = telebot.TeleBot('☺☻♥')
+bot = telebot.TeleBot(token='Только для лохов')
 
 @bot.message_handler(commands=['start'])
 
 def start_message(message):
-    bot.send_message(message.chat.id, 'Привет! Это бот с предсказаниями. И чтобы получить предсказание воспользуйтесь командой /next')
+    bot.send_message(message.chat.id, 'Привет! Это бот с гороскопом. И чтобы получить гороскоп воспользуйтесь командой /next')
 
 @bot.message_handler(commands=['next'])
-    
+
 def next_message(message):
-    ms = ['ты добрый','ты злой','ты очень злой','ты очень добрый','тебе плохо','тебе очень плохо','тебе везёт','тебе очень везёт','тебе не везёт','тебе очень не везёт',]
-    def random():
-        t = randint(0,10)
-        bot.send_message(message.chat.id, ms[t])
-    def prt():
-        bot.send_message(message.chat.id, 'Вот ваще предсказание на сегодня.')
-        bot.send_message(message.chat.id, 'Для нового диагноза нажмите сюда ---> /next')
-    random()
-    prt()
+    b = 0
+    bot.send_message(message.chat.id, 'Ведите сегоднешнею дату и ваш знак задиака в двух разных строчках')
+    @bot.message_handler(content_types=['text'])
+    def vod1(message):
+        @bot.message_handler(content_types=['text'])
+        def send_text(message):
+            bot.send_message(message.chat.id, 'Возможно на вас сегодня упадёт метиороит')
+
 bot.polling()
