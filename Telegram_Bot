@@ -1,0 +1,11 @@
+import telebot
+from random import randint
+bot = telebot.TeleBot('кто прочитал тот лох')
+@bot.message_handler(commands=['/start'])
+def start_messege(message):
+    bot.send_message(message.chat.id, 'Привет! Это бот с предсказаниями.')
+def random():
+    ms = ['ты добрый','ты злой','ты очень злой','ты очень добрый','тебе плохо','тебе очень плохо','тебе везёт','тебе очень везёт','тебе не везёт','тебе очень не везёт',]
+    bot.send_message(message.cat.id, ms[randit(0,9)])
+    bot.send_message(message.chat.id, 'Вот веще предсказание на сегодня.')
+bot.polling()
