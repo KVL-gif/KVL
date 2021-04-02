@@ -15,23 +15,23 @@ def start_message(message):
 def brosok(message):    
     bot.send_message(message.chat.id, 'быстро ведите скольки гранный куб(2,4,6,8,10,12,20,100) и сколько раз его бросить в одной строке через пробел(сначало грани потом склооько раз бросить')
 
-    @bot.message_handler(content_types=['text'])
-    def brosok(message):
-        w = (message.text).split()
-        l = len(w)
-        bot.send_message(message.chat.id, 'Рядовой тебе выпало')
-        for i in range(0,l,2):
-            n = int(w[0])
-            k = int(w[1])
-            t = 0
-            ms = []
-            for i in range(k):
-                r = randint(1,n)
-                ms.append(r)
-                t += r
-            bot.send_message(message.chat.id, ms[0::])
-            bot.send_message(message.chat.id, 'всего ты набросал на')
-            bot.send_message(message.chat.id, t)
-            bot.send_message(message.chat.id, '_______________________________________________')
+@bot.message_handler(content_types=['text'])
+def brosok1(message):
+    w = (message.text).split()
+    l = len(w)
+    bot.send_message(message.chat.id, 'Рядовой тебе выпало')
+    for i in range(0,l,2):
+        n = int(w[0])
+        k = int(w[1])
+        t = 0
+        ms = []
+        for i in range(k):
+            r = randint(1,n)
+            ms.append(r)
+            t += r
+        bot.send_message(message.chat.id, ms)
+        bot.send_message(message.chat.id, 'всего ты набросал на')
+        bot.send_message(message.chat.id, t)
+        bot.send_message(message.chat.id, '_______________________________________________')
 
 bot.polling()
