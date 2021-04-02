@@ -1,37 +1,49 @@
 import telebot
-from random import randint
-from time import sleep
 
-bot = telebot.TeleBot(token='кто прочетал тот лох')
+bot = telebot.TeleBot(token='кто прочитал тот лох')
+lsd = []
 
 @bot.message_handler(commands=['start'])
 
 def start_message(message):
-    bot.send_message(message.chat.id, 'Здравия желаю, это бот для игры в кости')
-    bot.send_message(message.chat.id, 'что-бы бросить введи /brosok')
+    bot.send_message(message.chat.id, 'Приветсую дорогой покупатель это бот для трекинга(отслеживания) покупок')
+    bot.send_message(message.chat.id, 'что-бы добавить продукцию напишите /append и название товара')
+    bot.send_message(message.chat.id, 'что-бы убрать продукцию напишите /pop и название товара')
+    bot.send_message(message.chat.id, 'что-бы получить список товаров напишите /watch')
+    
+@bot.message_handler(commands=['append'])
 
-@bot.message_handler(commands=['brosok'])
+def appends(message):
+    global lsd
+    bot.send_message(message.chat.id, 'что вы хотите добавить?')
+    
+    @bot.message_handler(content_types=['text'])
+    
+    def dekor(message):
+        a = message.text
+        lsd.append(a)
 
-def brosok(message):    
-    bot.send_message(message.chat.id, 'быстро ведите скольки гранный куб(2,4,6,8,10,12,20,100) и сколько раз его бросить в одной строке через пробел(сначало грани потом склооько раз бросить')
+@bot.message_handler(commands=['pop'])
 
-@bot.message_handler(content_types=['text'])
-def brosok1(message):
-    w = (message.text).split()
-    l = len(w)
-    bot.send_message(message.chat.id, 'Рядовой тебе выпало')
-    for i in range(0,l,2):
-        n = int(w[i])
-        k = int(w[i + 1])
-        t = 0
-        ms = []
-        for j in range(k):
-            r = randint(1,n)
-            ms.append(r)
-            t += r
-        bot.send_message(message.chat.id, ' '.join(list(map(str,ms))))
-        bot.send_message(message.chat.id, 'всего ты набросал на')
-        bot.send_message(message.chat.id, t)
-        bot.send_message(message.chat.id, '_______________________________________________')
+def pops(message):
+    global lsd
+    bot.send_message(message.chat.id, 'что вы хотите брать?')
+    
+    @bot.message_handler(content_types=['text'])
+    
+    def dekor(message):
+        a = message.text
+        t = lsd.index(a)
+        if t == -1:
+            bot.send_message(message.chat.id, 'Извените, но вы такого не добавляли')
+        else:
+            lsd.pop(t)
+
+@bot.message_handler(commands=['watch'])
+
+def watch(message):
+    global lsd
+    bot.send_message(message.chat.id, 'Вот ваш список на данный момент')
+    bot.send_message(message.chat.id, ' '.join(list(map(str,lsd))))
 
 bot.polling()
