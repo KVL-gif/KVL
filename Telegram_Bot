@@ -21,11 +21,11 @@ def brosok1(message):
     l = len(w)
     bot.send_message(message.chat.id, 'Рядовой тебе выпало')
     for i in range(0,l,2):
-        n = int(w[0])
-        k = int(w[1])
+        n = int(w[i])
+        k = int(w[i + 1])
         t = 0
         ms = []
-        for i in range(k):
+        for j in range(k):
             r = randint(1,n)
             ms.append(r)
             t += r
