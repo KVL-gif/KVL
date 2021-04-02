@@ -1,22 +1,37 @@
 import telebot
 from random import randint
+from time import sleep
 
-bot = telebot.TeleBot(token='Только для лохов')
+bot = telebot.TeleBot(token='1789859001:AAFH6dTOPacrybyWRl7awrlk7W7SCNUrXS0')
 
 @bot.message_handler(commands=['start'])
 
 def start_message(message):
-    bot.send_message(message.chat.id, 'Привет! Это бот с гороскопом. И чтобы получить гороскоп воспользуйтесь командой /next')
+    bot.send_message(message.chat.id, 'Здравия желаю, это бот для игры в кости')
+    bot.send_message(message.chat.id, 'что-бы бросить введи /brosok')
 
-@bot.message_handler(commands=['next'])
+@bot.message_handler(commands=['brosok'])
 
-def next_message(message):
-    b = 0
-    bot.send_message(message.chat.id, 'Ведите сегоднешнею дату и ваш знак задиака в двух разных строчках')
+def brosok(message):    
+    bot.send_message(message.chat.id, 'быстро ведите скольки гранный куб(2,4,6,8,10,12,20,100) и сколько раз его бросить в одной строке через пробел(сначало грани потом склооько раз бросить')
+
     @bot.message_handler(content_types=['text'])
-    def vod1(message):
-        @bot.message_handler(content_types=['text'])
-        def send_text(message):
-            bot.send_message(message.chat.id, 'Возможно на вас сегодня упадёт метиороит')
+    def brosok(message):
+        w = (message.text).split()
+        l = len(w)
+        bot.send_message(message.chat.id, 'Рядовой тебе выпало')
+        for i in range(0,l,2):
+            n = int(w[0])
+            k = int(w[1])
+            t = 0
+            ms = []
+            for i in range(k):
+                r = randint(1,n)
+                ms.append(r)
+                t += r
+            bot.send_message(message.chat.id, ms[0::])
+            bot.send_message(message.chat.id, 'всего ты набросал на')
+            bot.send_message(message.chat.id, t)
+            bot.send_message(message.chat.id, '_______________________________________________')
 
 bot.polling()
