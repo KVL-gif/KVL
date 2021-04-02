@@ -2,7 +2,7 @@ import telebot
 from random import randint
 from time import sleep
 
-bot = telebot.TeleBot(token='1789859001:AAFH6dTOPacrybyWRl7awrlk7W7SCNUrXS0')
+bot = telebot.TeleBot(token='кто прочетал тот лох')
 
 @bot.message_handler(commands=['start'])
 
@@ -29,7 +29,7 @@ def brosok1(message):
             r = randint(1,n)
             ms.append(r)
             t += r
-        bot.send_message(message.chat.id, ms)
+        bot.send_message(message.chat.id, ' '.join(list(map(str,ms))))
         bot.send_message(message.chat.id, 'всего ты набросал на')
         bot.send_message(message.chat.id, t)
         bot.send_message(message.chat.id, '_______________________________________________')
