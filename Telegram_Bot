@@ -1,43 +1,22 @@
 import telebot
 
-bot = telebot.TeleBot(token='кто прочитал тот лох')
+bot = telebot.TeleBot(token='1789859001:AAFH6dTOPacrybyWRl7awrlk7W7SCNUrXS0')
 lsd = []
+q = ''
 
 @bot.message_handler(commands=['start'])
 
 def start_message(message):
     bot.send_message(message.chat.id, 'Приветсую дорогой покупатель это бот для трекинга(отслеживания) покупок')
-    bot.send_message(message.chat.id, 'что-бы добавить продукцию напишите /append и название товара')
-    bot.send_message(message.chat.id, 'что-бы убрать продукцию напишите /pop и название товара')
+    bot.send_message(message.chat.id, 'Что-бы добавить товар сначало напишите его название а потом вам будет предоставлена инструкция.')
     bot.send_message(message.chat.id, 'что-бы получить список товаров напишите /watch')
-    
-@bot.message_handler(commands=['append'])
+    bot.send_message(message.chat.id, 'что-бы обновить список напишите /delete')
 
-def appends(message):
+@bot.message_handler(commands=['delete'])
+
+def delete(message):
     global lsd
-    bot.send_message(message.chat.id, 'что вы хотите добавить?')
-    
-    @bot.message_handler(content_types=['text'])
-    
-    def dekor(message):
-        a = message.text
-        lsd.append(a)
-
-@bot.message_handler(commands=['pop'])
-
-def pops(message):
-    global lsd
-    bot.send_message(message.chat.id, 'что вы хотите брать?')
-    
-    @bot.message_handler(content_types=['text'])
-    
-    def dekor(message):
-        a = message.text
-        t = lsd.index(a)
-        if t == -1:
-            bot.send_message(message.chat.id, 'Извените, но вы такого не добавляли')
-        else:
-            lsd.pop(t)
+    lsd = []
 
 @bot.message_handler(commands=['watch'])
 
@@ -46,4 +25,24 @@ def watch(message):
     bot.send_message(message.chat.id, 'Вот ваш список на данный момент')
     bot.send_message(message.chat.id, ' '.join(list(map(str,lsd))))
 
+@bot.message_handler(content_types=['text'])
+
+def modefikacia(message):
+    global lsd
+    global q
+    a = message.text
+    if a == 'добавить':
+        lsd.append(q)
+        bot.send_message(message.chat.id, 'Товар записан.')
+    elif a == 'удалить':
+        if q not in lsd:
+            bot.send_message(message.chat.id, 'У вас такого в списке нет.')
+        else:
+            t = lsd.index(q)
+            lsd.pop(t)
+            bot.send_message(message.chat.id, 'удаление завершено.')
+    else:
+        q = a
+        bot.send_message(message.chat.id, 'Есле хотите добавить этот товар напишите "добавить" если же убрать то "удалить".')
+    
 bot.polling()
