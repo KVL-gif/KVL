@@ -29,20 +29,20 @@ def watch(message):
 
 def modefikacia(message):
     global lsd
-    global q
     a = message.text
-    if a == 'добавить':
-        lsd.append(q)
-        bot.send_message(message.chat.id, 'Товар записан.')
-    elif a == 'удалить':
-        if q not in lsd:
-            bot.send_message(message.chat.id, 'У вас такого в списке нет.')
-        else:
-            t = lsd.index(q)
-            lsd.pop(t)
-            bot.send_message(message.chat.id, 'удаление завершено.')
+    keyboard = telebot.types.ReplyKeyboardMarkup()
+    item1 = telebot.types.KeyboardButton('добавить')
+    item2 = telebot.types.KeyboardButton('удалить')
+    keyboard.row(item1,item2)
+    bot.send_message(message.chat.id, 'Что с этим товаром зделать?'; 
+    reply_markup=keyboard)
+    if reply_markup == 'добавить':
+        lsd.append(a)
     else:
-        q = a
-        bot.send_message(message.chat.id, 'Есле хотите добавить этот товар напишите "добавить" если же убрать то "удалить".')
-    
+        if a in lsd:
+            e = lsd.index(a)
+            lsd.pop(e)
+        else:
+            bot.send_message(message.chat.id, 'Такого товара нет.')
+            
 bot.polling()
