@@ -1,10 +1,16 @@
-#ПУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУТИН ПААААААААААААААААААААААААААААААААААААААААААМАААААААААААААААААААААААААААААААГИИИИИИИИИИИИИИИИИИИИИИИИИИ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 import random
 def mut(n):
+    if n == 10:
+        return random.randint(-1,0) + n
     if n > 1:
         return random.randint(-1,1) + n
     else:
         return random.randint(0,1) + n
+def srv(n1,n2,n3):
+    if n1 == 10 and n2 == 10 and n3 == 10:
+        return True
+    else:
+        return False
 class krokodil:
     def __init__(self, glaz, nog, hvost):
         self.glaz = glaz
@@ -18,20 +24,20 @@ for i in range(10000):
     nog = random.randint(1,9)
     hvost = random.randint(1,9)
     ms.append(krokodil(glaz,nog,hvost))
-k = krokodil(10,10,10)
 w = 1
 ms1 = []
 while True:
     for i in range(0,10000,2):
         glaz1,nog1,hvost1 = ms[i].rez()
         glaz2,nog2,hvost2 = ms[i + 1].rez()
-        glaz = ((glaz1 + glaz2) // 2)
-        nog = ((nog1 + nog2) // 2)
-        hvodt = ((hvost1 + hvost2) // 2)
+        glaz = (max(nog1,nog2))
+        nog = (max(nog1,nog2))
+        hvodt = (max(nog1,nog2))
         ms1.append(krokodil(mut(glaz),mut(nog),mut(hvost)))
         ms1.append(krokodil(mut(glaz),mut(nog),mut(hvost)))
-        if k in ms1:
+        if srv(glaz1,nog1,hvost1) or srv(glaz2,nog2,hvost2):
             print(w,i)
             exit()
-        
+    ms = ms1
+    ms1 = []
     w += 1
