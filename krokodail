@@ -19,26 +19,36 @@ class krokodil:
     def rez(self):
         return self.glaz, self.nog, self.hvost
 ms = []
+ms2 = []
 for i in range(10000):
     glaz = random.randint(1,9)
     nog = random.randint(1,9)
     hvost = random.randint(1,9)
     ms.append(krokodil(glaz,nog,hvost))
+    ms2.append(0)
 w = 1
 ms1 = []
+ms3 = []
 while True:
-    for i in range(0,10000,2):
+    for i in range(0,len(ms),2):
         glaz1,nog1,hvost1 = ms[i].rez()
         glaz2,nog2,hvost2 = ms[i + 1].rez()
         glaz = (max(nog1,nog2))
         nog = (max(nog1,nog2))
         hvodt = (max(nog1,nog2))
         ms.append(krokodil(mut(glaz),mut(nog),mut(hvost)))
+        ms2.append(0)
         ms.append(krokodil(mut(glaz),mut(nog),mut(hvost)))
-        if len(ms) > 30000:
-            ms = ms[2:]
+        ms2.append(0)
         if srv(glaz1,nog1,hvost1) or srv(glaz2,nog2,hvost2):
             print(w,i)
             exit()
+    for i in range(len(ms)):
+        if ms2[i] != 3:
+            ms1.append(ms[i])
+            ms3.append(ms2[i] + 1)
+    ms = ms1
     ms1 = []
+    ms2 = ms3
+    ms3 = []
     w += 1
