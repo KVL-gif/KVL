@@ -3,21 +3,15 @@ import random
 
 def mut(ms):
     x,y,z = ms
-    x += random.randint(-1,1)
-    y += random.randint(-1,1)
-    z += random.randint(-1,1)
-    if x == -1:
-        x = 256
-    if x == 257:
-        x = 0
-    if y == -1:
-        y = 256
-    if y == 257:
-        y = 0
-    if z == -1:
-        z = 256
-    if z == 257:
-        z = 0
+    x += random.randint(0,256)
+    y += random.randint(0,256)
+    z += random.randint(0,256)
+    x = abs(x)
+    y = abs(y)
+    z = abs(y)
+    x %= 257
+    y %= 257
+    z %= 257
     return [x,y,z]
 def srv(img1,img2):
     global x
@@ -25,13 +19,12 @@ def srv(img1,img2):
     t = 0
     for i in range(x):
         for j in range(y):
-            if [img1[i][j][0],img1[i][j][1],img1[i][j][2]] == img2[i][j]:
+            if img1[i][j][0] == img2[i][j][0] and img1[i][j][1] == img2[i][j][1] and img1[i][j][2] == img2[i][j][2]:
                 t += 1
     return t
 img1 = cv2.imread('C:\\Users\\Valentina\\Downloads\\boom.jpg')
 x,y,z = img1.shape
 img2 = [[[0,0,0] for i in range(y)] for i in range(x)]
-
 k = 0
 r = x * y
 l = 0
