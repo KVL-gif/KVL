@@ -3,12 +3,15 @@ import random
 
 def mut(ms,ms1):
     x,y,z = ms
-    while x != ms1[0]:
-        x = random.randint(0,255)
-    while y != ms1[0]:
-        y = random.randint(0,255)
-    while z != ms1[0]:
-        z = random.randint(0,255)
+    if ms[0] != ms1[0] and ms[1] != ms1[1] and ms[2] != ms1[2]:
+        global l
+        while x != ms1[0]:
+            x = random.randint(0,255)
+        while y != ms1[0]:
+            y = random.randint(0,255)
+        while z != ms1[0]:
+            z = random.randint(0,255)
+        l += 1
     return [x,y,z]
 img1 = cv2.imread('C:\\Users\\Public\\Pictures\\boom.png')
 x,y,z = img1.shape
@@ -16,13 +19,14 @@ img2 = [[[0,0,0] for i in range(y)] for i in range(x)]
 k = 0
 r = x * y
 l = 0
-for i in range(x):
-    for j in range(y):
-        ms = mut(img2[i][j],img1[i][j])
-        img2[i][j] = ms
-    l += 1
+while k < 0.8:
+    i = random.randint(0,x - 1)
+    j = random.randint(0,y - 1)
+    ms = mut(img2[i][j],img1[i][j])
+    img2[i][j] = ms
+    k = l / r
 print(l)
 for i in range(x):
     for j in range(y):
         img2 = numpy.uint8(img2[i][j])
-cv2.imshow(img2,img)
+cv2.imshow('image', img2)
