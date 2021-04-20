@@ -5,7 +5,7 @@ def mut(ms,ms1):
     x,y,z = ms
     while x != ms1[0]:
         x = random.randint(0,255)
-    while z != ms1[0]:
+    while y != ms1[0]:
         y = random.randint(0,255)
     while z != ms1[0]:
         z = random.randint(0,255)
