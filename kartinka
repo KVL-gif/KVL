@@ -1,34 +1,25 @@
 import cv2
 import random
 
-def mut(ms):
+def mut(ms,ms1):
     x,y,z = ms
-    x = random.randint(0,256)
-    y = random.randint(0,256)
-    z = random.randint(0,256)
+    while x != ms1[0]:
+        x = random.randint(0,255)
+    while z != ms1[0]:
+        y = random.randint(0,255)
+    while z != ms1[0]:
+        z = random.randint(0,255)
     return [x,y,z]
-def srv(img1,img2):
-    global x
-    global y
-    t = 0
-    for i in range(x):
-        for j in range(y):
-            if img1[i][j][0] == img2[i][j][0] and img1[i][j][1] == img2[i][j][1] and img1[i][j][2] == img2[i][j][2]:
-                t += 1
-    return t
-img1 = cv2.imread('C:\\Users\\Мария\\Downloads\\boom.png')
+img1 = cv2.imread('C:\\Users\\Public\\Pictures\\boom.png')
 x,y,z = img1.shape
 img2 = [[[0,0,0] for i in range(y)] for i in range(x)]
 k = 0
 r = x * y
 l = 0
-while k < 0.8:
-    for i in range(x):
-        for j in range(y):
-            while img1[i][j][0] != img2[i][j][0] or img1[i][j][1] != img2[i][j][1] or img1[i][j][2] != img2[i][j][2]:
-                ms = mut(img2[i][j])
-                img2[i][j] = ms
-    k = srv(img1,img2) / r
+for i in range(x):
+    for j in range(y):
+        ms = mut(img2[i][j],img1[i][j])
+        img2[i][j] = ms
     l += 1
 print(l)
 for i in range(x):
